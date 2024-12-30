@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-margin: 5px 0;
+    --main-padding: 5px 0;
+}
+
+body {
+    background-color: #777777;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+} 
+/* start header */
+header .container {
+    text-align: center;
+}
+header .container h3 {
+    text-transform: uppercase;
+}
+/* end header */
+
+main .container {
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+}
+main .container .ptadt {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 5px;
+}
+main .container input, button {
+    padding: var(--main-padding);
+    border-radius: 5px;
+}
+main .container .ptadt, .title, .count, .category, .createBtn {
+    width: 100%;
+    margin: var(--main-margin);
+}
+/* media query */
+@media (max-width: 767px) {
+    main .container span {
+        display: block;
+    }
+}
+
+
