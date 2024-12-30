@@ -6,7 +6,7 @@
 
 :root {
     --main-margin: 5px 0;
-    --main-padding: 5px 0;
+    --main-padding: 7px 0;
 }
 
 body {
@@ -17,6 +17,7 @@ body {
 /* start header */
 header .container {
     text-align: center;
+    background-color: #999;
 }
 header .container h3 {
     text-transform: uppercase;
@@ -33,13 +34,27 @@ main .container .ptadt {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 5px;
 }
+main .container input {
+    outline: none;
+    border: none;
+}
+main .container button {
+    color: orangered;
+}
 main .container input, button {
     padding: var(--main-padding);
     border-radius: 5px;
 }
-main .container .ptadt, .title, .count, .category, .createBtn {
+main .container .ptadt input, input , button{
     width: 100%;
     margin: var(--main-margin);
+}
+main .container .ptadt .total {
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 5px;
 }
 /* media query */
 @media (max-width: 767px) {
