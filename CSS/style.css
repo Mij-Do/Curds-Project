@@ -50,6 +50,7 @@ main .container .ptadt input, input , button{
     margin: var(--main-margin);
 }
 main .container .ptadt .total {
+    background-color: red;
     color: white;
     display: flex;
     justify-content: flex-start;
@@ -63,4 +64,15 @@ main .container .ptadt .total {
     }
 }
 
+/* start show section */
+.show .container {
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+}
+.show .navbar-show span {
+    padding: 20px;
+}
+
+/* end show section */
 
