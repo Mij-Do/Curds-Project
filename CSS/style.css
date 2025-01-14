@@ -67,6 +67,9 @@ main .container .ptadt .total {
     align-items: center;
     border-radius: 5px;
 }
+main .total::before {
+    content: "Total:";
+}
 /* media query */
 @media (max-width: 767px) {
     main .container span {

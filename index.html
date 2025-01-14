@@ -22,22 +22,22 @@
             <!-- start create section -->
             <section class="create">
                 <!-- inpu title -->
-                <input class="title" type="text" placeholder="Title">
+                <input class="title" id="title" type="text" placeholder="Title">
                 <!-- Price&Taxes&ads&discount total -->
                 <div class="ptadt">
-                    <input class="price" id="price" type="number" placeholder="Price">
-                    <input class="taxes" id="texas" type="number" placeholder="Taxes">
-                    <input class="ads" id="ads" type="number" placeholder="Ads">
-                    <input class="discont" id="discount" type="number" placeholder="Discount">
-                    <span class="total" id="total" >Total:</span>
+                    <input onkeyup="getTotal ();" class="price" id="price" type="number" placeholder="Price">
+                    <input onkeyup="getTotal ();" class="taxes" id="taxes" type="number" placeholder="Taxes">
+                    <input onkeyup="getTotal ();" class="ads" id="ads" type="number" placeholder="Ads">
+                    <input onkeyup="getTotal ();" class="discont" id="discount" type="number" placeholder="Discount">
+                    <span class="total" id="total" ></span>
                 </div>
                 <div class="ccc">
                     <!-- count -->
-                    <input class="count" type="number" placeholder="Count">
+                    <input class="count" id="count" type="number" placeholder="Count">
                     <!-- category -->
-                    <input class="category" type="text" placeholder="Category">
+                    <input class="category" id="category" type="text" placeholder="Category">
                     <!-- create btn -->
-                    <button class="createBtn" type="button">create</button>
+                    <button class="createBtn" id="createBtn" type="button">create</button>
                 </div>
             </section>
             <!-- end create section -->
