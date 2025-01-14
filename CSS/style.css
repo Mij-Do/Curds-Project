@@ -37,9 +37,19 @@ main .container .ptadt {
 main .container input {
     outline: none;
     border: none;
+    transition: 0.5s;
+}
+main .container input:focus {
+    transform: scale(1.1);
+    background-color: #999;
+    color: #fff;
 }
 main .container button {
     color: orangered;
+    transition: 0.5s;
+}
+main .container button:hover {
+    letter-spacing: 2px;
 }
 main .container input, button {
     padding: var(--main-padding);

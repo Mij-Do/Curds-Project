@@ -43,25 +43,15 @@ function calculateTotal() {
     let adsVal = parseInt(localStorage.getItem("ads")) || 0;
     let discountVal = parseInt(localStorage.getItem("discount")) || 0;
 
-    let totalValue = priceVal + texasVal + adsVal - discountVal;
     
-    if (price.value == ''){
+    if (priceVal == '' && texasVal == '' && adsVal == ''){
         total.style.backgroundColor = "red";
         total.innerHTML = `Total: 0`;
-    } else if (localStorage.length > 0 && totalValue > 0) {
+    } else if (localStorage.length > 0) {
+        let totalValue = priceVal + texasVal + adsVal - discountVal;
         total.style.backgroundColor = "green";
         total.innerHTML = `Total: ${totalValue}`;
     }
 }
 // Load initial values and calculate total
 calculateTotal();
-
-
-
-// show section
-let titleShow = document.getElementById("titleShow");
-let priceShow = document.getElementById("priceShow");
-let taxesShow = document.getElementById("taxesShow");
-let adsShow = document.getElementById("adsShow");
-let discontShow = document.getElementById("discontShow");
-let categoryShow = document.getElementById("categoryShow");
