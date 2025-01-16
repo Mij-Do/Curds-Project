@@ -10,6 +10,7 @@ let total = document.getElementById("total");
 let count = document.getElementById("count");
 let category = document.getElementById("category");
 let createBtn = document.getElementById("createBtn");
+let search = document.getElementById("search");
 
 // getTotal 
 function getTotal () {
@@ -33,7 +34,6 @@ if (localStorage.product != null) {
     dataProduct = [];
 }
 
-
 createBtn.addEventListener("click", function () {
     let product = {
         title: title.value,
@@ -47,4 +47,20 @@ createBtn.addEventListener("click", function () {
     }
     dataProduct.push(product);
     window.localStorage.setItem("product", JSON.stringify(dataProduct));
+
+    // clear data func
+    clearData ();
 });
+
+// clear data
+function clearData () {
+    title.value = '';
+    price.value = '';
+    taxes.value = '';
+    ads.value = '';
+    discount.value = '';
+    total.innerHTML = '';
+    total.style.backgroundColor = "red";
+    category.value = '';
+    count.value = '';
+};
