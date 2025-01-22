@@ -12,6 +12,7 @@ let category = document.getElementById("category");
 let createBtn = document.getElementById("createBtn");
 let search = document.getElementById("search");
 
+
 // getTotal 
 function getTotal () {
     if (price.value != "") {
@@ -50,7 +51,7 @@ createBtn.addEventListener("click", function () {
 
     // clear data func
     clearData ();
-    // sow data
+    // show data
     showData ();
 });
 
@@ -72,7 +73,6 @@ function clearData () {
 
 function showData () {
     let table = '';
-
     for (let i = 0; i < dataProduct.length; i++) {
         table += `
             <tr>
@@ -81,10 +81,15 @@ function showData () {
                 <td>${dataProduct[i].price}</td>
                 <td>${dataProduct[i].taxes}</td>
                 <td>${dataProduct[i].ads}</td>
-                <td>${dataProduct[i].total}</td>
+                <td>${dataProduct[i].discount}</td>
                 <td>${dataProduct[i].category}</td>
-                <td>${dataProduct[i].count}</td>
+                <td>${dataProduct[i].total}</td>
+                <td><button id='update'>update</button></td>
+                <td><button id='delete'>delete</button></td>
             </tr>
-        `
-    }
+            `
+        }
+    let tbody = document.getElementById('tbody').innerHTML = table;
 }
+
+showData ();
