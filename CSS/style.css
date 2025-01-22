@@ -70,6 +70,17 @@ main .container .ptadt .total {
 main .total::before {
     content: "Total:";
 }
+
+/* start search btns */
+.searchbtns {
+    display: flex;
+    justify-content: space-between;
+}
+.searchbtns button {
+    width: 45%;
+}
+/* end search btns */
+
 /* media query */
 @media (max-width: 767px) {
     main .container span {
@@ -78,13 +89,22 @@ main .total::before {
 }
 
 /* start show section */
-.show .container {
-    width: 80%;
+main .show {
+    width: 100%;
     margin: 10px auto;
     text-align: center;
 }
-.show .navbar-show span {
-    padding: 20px;
+.show table {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+}
+.show table th {
+    text-transform: uppercase;
+}
+
+table th, td {
+    padding: 5px;
 }
 
 /* end show section */

@@ -50,6 +50,8 @@ createBtn.addEventListener("click", function () {
 
     // clear data func
     clearData ();
+    // sow data
+    showData ();
 });
 
 // clear data
@@ -64,3 +66,25 @@ function clearData () {
     category.value = '';
     count.value = '';
 };
+
+
+// read data
+
+function showData () {
+    let table = '';
+
+    for (let i = 0; i < dataProduct.length; i++) {
+        table += `
+            <tr>
+                <td>${i}</td>
+                <td>${dataProduct[i].title}</td>
+                <td>${dataProduct[i].price}</td>
+                <td>${dataProduct[i].taxes}</td>
+                <td>${dataProduct[i].ads}</td>
+                <td>${dataProduct[i].total}</td>
+                <td>${dataProduct[i].category}</td>
+                <td>${dataProduct[i].count}</td>
+            </tr>
+        `
+    }
+}
