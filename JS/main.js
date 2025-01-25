@@ -11,7 +11,8 @@ let count = document.getElementById("count");
 let category = document.getElementById("category");
 let createBtn = document.getElementById("createBtn");
 let search = document.getElementById("search");
-
+let mood = 'create';
+let tmp;
 
 // getTotal 
 function getTotal () {
@@ -46,13 +47,21 @@ createBtn.addEventListener("click", function () {
         count: count.value,
         category: category.value,
     }
-    if (product.count > 1) {
-        for (let i = 0; i < product.count; i++) {
+    if (mood === 'create') {
+        if (product.count > 1) {
+            for (let i = 0; i < product.count; i++) {
+                dataProduct.push(product);
+            } 
+        } else {
             dataProduct.push(product);
-        } 
+        }
     } else {
-        dataProduct.push(product);
+        dataProduct[tmp] = product;
+        mood = 'create';
+        createBtn.innerHTML = 'Create';
+        count.style.display = 'block';
     }
+    
     
     window.localStorage.setItem("product", JSON.stringify(dataProduct));
 
@@ -91,7 +100,7 @@ function showData () {
                 <td>${dataProduct[i].discount}</td>
                 <td>${dataProduct[i].category}</td>
                 <td>${dataProduct[i].total}</td>
-                <td><button id='update'>update</button></td>
+                <td><button onclick="updateData (${i})" id='update'>update</button></td>
                 <td><button onclick="deleteData (${i})"  id='delete'>delete</button></td>
             </tr>
         `;
@@ -103,7 +112,7 @@ function showData () {
     } else {
         deleteAll.innerHTML = '';
     }
-}
+};
 
 showData ();
 
@@ -112,11 +121,30 @@ function deleteData (i) {
     dataProduct.splice(i,1);
     localStorage.product = JSON.stringify(dataProduct);
     showData ();
-}
+};
 
 // delete all
 function deleteAll () {
     localStorage.clear();
     dataProduct.splice(0);
     showData ();
+};
+
+// update data
+function updateData (i) {
+    title.value = dataProduct[i].title;
+    price.value = dataProduct[i].price;
+    taxes.value = dataProduct[i].taxes;
+    ads.value = dataProduct[i].ads;
+    discount.value = dataProduct[i].discount;
+    getTotal();
+    count.style.display = 'none';
+    createBtn.innerHTML = 'Update';
+    category.value = dataProduct[i].category;
+    mood = 'update';
+    tmp = i;
+    scroll({
+        top: 0,
+        behavior: "smooth",
+    });
 }
