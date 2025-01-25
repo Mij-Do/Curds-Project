@@ -46,7 +46,14 @@ createBtn.addEventListener("click", function () {
         count: count.value,
         category: category.value,
     }
-    dataProduct.push(product);
+    if (product.count > 1) {
+        for (let i = 0; i < product.count; i++) {
+            dataProduct.push(product);
+        } 
+    } else {
+        dataProduct.push(product);
+    }
+    
     window.localStorage.setItem("product", JSON.stringify(dataProduct));
 
     // clear data func
@@ -92,7 +99,7 @@ function showData () {
     let tbody = document.getElementById('tbody').innerHTML = table;
     let deleteAll = document.getElementById('deleteAll');
     if (dataProduct.length > 0) {
-        deleteAll.innerHTML = `<button onclick="deleteAll ()">Delete All</button>`;
+        deleteAll.innerHTML = `<button onclick="deleteAll ()">Delete All(${dataProduct.length})</button>`;
     } else {
         deleteAll.innerHTML = '';
     }

@@ -47,6 +47,8 @@ main .container input:focus {
 main .container button {
     color: orangered;
     transition: 0.5s;
+    outline: none;
+    border: none;
 }
 main .container button:hover {
     letter-spacing: 2px;
@@ -83,6 +85,10 @@ main .total::before {
 
 /* media query */
 @media (max-width: 767px) {
+    header .container {
+        width: 100%;
+        margin: 0;
+    }
     main .container span {
         display: block;
     }
