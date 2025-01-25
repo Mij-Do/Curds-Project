@@ -39,11 +39,11 @@
                     <!-- create btn -->
                     <button class="createBtn" id="createBtn" type="button">create</button>
                     <!-- search -->
-                    <input type="text" name="search" id="search" placeholder="Search">
+                    <input onkeyup="searchData (this.value)" type="text" name="search" id="search" placeholder="Search">
                     <!-- search btns -->
                     <div class="searchbtns">
-                        <button id="searchTitle">Search by title</button>
-                        <button id="searchCategory">Search by category</button>
+                        <button onclick="searchFunc (this.id)" id="searchTitle">Search by title</button>
+                        <button onclick="searchFunc (this.id)" id="searchCategory">Search by category</button>
                     </div>
                 </div>
             </section>
