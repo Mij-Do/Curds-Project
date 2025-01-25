@@ -87,9 +87,15 @@ function showData () {
                 <td><button id='update'>update</button></td>
                 <td><button onclick="deleteData (${i})"  id='delete'>delete</button></td>
             </tr>
-            `
-        }
+        `;
+    }
     let tbody = document.getElementById('tbody').innerHTML = table;
+    let deleteAll = document.getElementById('deleteAll');
+    if (dataProduct.length > 0) {
+        deleteAll.innerHTML = `<button onclick="deleteAll ()">Delete All</button>`;
+    } else {
+        deleteAll.innerHTML = '';
+    }
 }
 
 showData ();
@@ -98,5 +104,12 @@ showData ();
 function deleteData (i) {
     dataProduct.splice(i,1);
     localStorage.product = JSON.stringify(dataProduct);
+    showData ();
+}
+
+// delete all
+function deleteAll () {
+    localStorage.clear();
+    dataProduct.splice(0);
     showData ();
 }

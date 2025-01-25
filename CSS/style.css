@@ -94,6 +94,9 @@ main .show {
     margin: 10px auto;
     text-align: center;
 }
+#deleteAll {
+    margin: 20px 0;
+}
 .show table {
     width: 100%;
     text-align: center;
