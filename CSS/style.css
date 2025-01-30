@@ -74,6 +74,9 @@ main .total::before {
 }
 
 /* start search btns */
+#search {
+    display: none;
+}
 .searchbtns {
     display: flex;
     justify-content: space-between;

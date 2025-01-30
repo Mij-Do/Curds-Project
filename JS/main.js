@@ -156,10 +156,14 @@ let searchMood = 'title';
 function searchFunc (id) {
     if (id == 'searchTitle') {
         searchMood = 'title';
+        search.style.display = "block";
         search.placeholder = 'Search By Title';
-    } else {
+    } else if (id == 'searchCategory') {
         searchMood = 'category';
+        search.style.display = "block";
         search.placeholder = 'Search By Category';
+    } else {
+        search.style.display = 'none';
     }
     search.focus();
     showData();
