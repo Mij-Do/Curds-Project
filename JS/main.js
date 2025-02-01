@@ -47,26 +47,30 @@ createBtn.addEventListener("click", function () {
         count: count.value,
         category: category.value.toLowerCase(),
     }
-    if (mood === 'create') {
-        if (product.count > 1) {
-            for (let i = 0; i < product.count; i++) {
+    // clean data
+    if (title.value != '' && price.value != '' && category.value != '' && product.count < 101) {
+        if (mood === 'create') {
+            if (product.count > 1) {
+                for (let i = 0; i < product.count; i++) {
+                    dataProduct.push(product);
+                } 
+            } else {
                 dataProduct.push(product);
-            } 
+            }
         } else {
-            dataProduct.push(product);
+            dataProduct[tmp] = product;
+            mood = 'create';
+            createBtn.innerHTML = 'Create';
+            count.style.display = 'block';
         }
-    } else {
-        dataProduct[tmp] = product;
-        mood = 'create';
-        createBtn.innerHTML = 'Create';
-        count.style.display = 'block';
-    }
+        // clear data func
+        clearData ();
+    } 
     
     
     window.localStorage.setItem("product", JSON.stringify(dataProduct));
 
-    // clear data func
-    clearData ();
+    
     // show data
     showData ();
 });
@@ -92,7 +96,7 @@ function showData () {
     for (let i = 0; i < dataProduct.length; i++) {
         table += `
             <tr>
-                <td>${i}</td>
+                <td>${i + 1}</td>
                 <td>${dataProduct[i].title}</td>
                 <td>${dataProduct[i].price}</td>
                 <td>${dataProduct[i].taxes}</td>
